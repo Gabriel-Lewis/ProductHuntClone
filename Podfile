@@ -7,4 +7,5 @@ target 'ph-test1' do
 pod 'Alamofire', '~> 3.0'
 pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 pod 'AlamofireImage', '~> 2.0'
+pod 'PHImageKit'
 end

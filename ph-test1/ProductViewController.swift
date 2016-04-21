@@ -13,15 +13,13 @@ import SwiftyJSON
 class ProductViewController: UIViewController {
 
 	@IBOutlet weak var productImage: UIImageView!
-	
 	var posts = [Post]()
 	
 	var x: Int!
 	
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		let post: Post!
+		//let post: Post!
 		DataManager.getTopAppsDataFromPHWithSuccess { PHData in
 			
 			let json = JSON(data: PHData)

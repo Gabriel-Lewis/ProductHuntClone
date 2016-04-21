@@ -86,10 +86,12 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-ph-test1/Alamofire.framework"
   install_framework "Pods-ph-test1/AlamofireImage.framework"
+  install_framework "Pods-ph-test1/PHImageKit.framework"
   install_framework "Pods-ph-test1/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-ph-test1/Alamofire.framework"
   install_framework "Pods-ph-test1/AlamofireImage.framework"
+  install_framework "Pods-ph-test1/PHImageKit.framework"
   install_framework "Pods-ph-test1/SwiftyJSON.framework"
 fi

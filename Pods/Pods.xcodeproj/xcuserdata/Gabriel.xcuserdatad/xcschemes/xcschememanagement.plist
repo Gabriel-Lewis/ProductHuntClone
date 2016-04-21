@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PHImageKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-ph-test1.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,17 +37,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>3A169771CF2DF6FA8B547E058BA6A2D3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>432ECC54282C84882B482CCB4CF227FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>77807FF90CBFAC736D2B95F3B036A366</key>
+		<key>9D6AE08E26304E8311E21816109C3C6B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F2C1476715FD7317F4CD777AF41E6855</key>
+		<key>F58148D9A82149C805854AA45A399AEC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

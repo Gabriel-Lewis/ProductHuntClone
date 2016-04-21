@@ -10,7 +10,8 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-let URL = "https://api.producthunt.com/v1/posts"
+let BASE_URL = "https://api.producthunt.com/v1/posts"
+let POSTS = "posts"
 
 let headers = [
 	
@@ -25,37 +26,29 @@ class DataManager {
 	
 	class func getTopAppsDataFromPHWithSuccess(success: ((PHData: NSData!) -> Void)) {
 		
-		loadDataFromURL(URL) { (data, error) -> Void in
+		loadDataFromURL(BASE_URL) { (data, error) -> Void in
+			
 			if let urlData = data {
+				
 				success(PHData: urlData)
 			}
 		}
 	}
-	
-		
-	
-		
 
 	class func loadDataFromURL(Url: String, completion:(data: NSData?, error: NSError?) -> Void) {
 		
 		Alamofire.request(.GET, Url, headers: headers)
-			
 			.response { request, response, data, error in
 				
-		if let responseError = error {
+				if let responseError = error {
+					completion(data: nil, error: responseError)
 			
-			completion(data: nil, error: responseError)
+				} else if response!.statusCode != 200 {
+					completion(data: nil, error: error)
 			
-		} else if response!.statusCode != 200 {
-			
-			completion(data: nil, error: error)
-			
-		} else {
-			
-			completion(data: data, error: nil)
-			
-				}
+				} else {
+					completion(data: data, error: nil)
+			}
 		}
-}
-		
+	}		
 }

@@ -18,13 +18,14 @@ class Post {
 	private var _imageUrl: String?
 	private var _productImage: UIImageView!
 	
-	
 	var title: String {
 		return _title
 	}
+	
 	var tagline: String {
 		return _tagline
 	}
+	
 	var imageUrl: String? {
 		return _imageUrl
 	}
@@ -33,15 +34,11 @@ class Post {
 		return _productImage
 	}
 	
-	
 	init(title: String, tagline: String, imageUrl: String) {
 		self._tagline = tagline
 		self._title = title
 		self._imageUrl = imageUrl
-		
 	}
-	
-	
 }
 
 				

@@ -16,50 +16,32 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 	var posts = [Post]()
 	static var imageCache = NSCache()
-	
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		
-		
-		
 		DataManager.getTopAppsDataFromPHWithSuccess { (PHData) -> Void in
 			
 			let json = JSON(data: PHData)
-			
 			if let postsArray = json["posts"].array {
 				for postDict in postsArray {
 					let name: String? = postDict["name"].string
 					let tagline: String? = postDict["tagline"].string
 					let imageurl: String? = postDict["thumbnail"]["image_url"].string
-					
 					let post = Post(title: name!, tagline: tagline!, imageUrl: imageurl!)
-					
 					self.posts.append(post)
-					
 				}
-				self.tv.reloadData()
 			}
-			
-			print(self.posts[1].imageUrl!)
-			
-		
-		
-	
+		self.tv.reloadData()
 		}
 	}
 	
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		
-		 let post = posts[indexPath.row]
+		let post = posts[indexPath.row]
 		
 		if let cell = tv.dequeueReusableCellWithIdentifier("ProductCell", forIndexPath: indexPath) as? ProductCell {
-			
 			cell.request?.cancel()
-			
 			var img: UIImage?
-			
 			if let url = post.imageUrl {
 				img = ViewController.imageCache.objectForKey(url) as? UIImage
 			}
@@ -68,7 +50,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			return cell
 			
 		} else {
-			
 			return ProductCell()
 		}
 	}
@@ -83,21 +64,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 	
 	func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-		
 		performSegueWithIdentifier("ShowPosts", sender: Int(indexPath.row))
 	}
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if segue.identifier == "ShowPosts" {
-			
 			let ProductVC = segue.destinationViewController as! ProductViewController
 			let indexpath = tv.self.indexPathForSelectedRow
 			ProductVC.x = (indexpath?.row)
 		}
 	}
-	
-	
-	
 }
-
-
